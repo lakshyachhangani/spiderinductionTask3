@@ -1,12 +1,12 @@
-n=int(input())
-m=int(input())
-lis=list(map(int,input().split()))    
-lis.sort()
-new_lis=[]                              # strenght list for new bricks
-d=m-n
-for i in range(d):
-    temp=lis[i]+lis[2*d-i-1]            #See, if I have to add bricks to get n bricks , I would add the first d numbers with each other because if we add it with the last numbers of list we can't be sure of the middle ones
-    new_lis.append(temp)
-for i in range(2*d,m):
-    new_lis.append(lis[i])              # Now I will add the remaining the numbers from list to new_list
-print(min(new_lis))                     #The minimum will be the strength of thw wall
+n = int(input())
+m = int(input())
+arr = list(map(int, input().split()))
+arr.sort()
+d=m-n                         
+a = arr[d:]                    
+b= arr[:d]
+while len(b) > 0:
+    a[0] += max(b)                         
+    b.remove(max(b))
+    a.sort()
+print(min(a))
