@@ -1,0 +1,12 @@
+n=int(input())
+k=0    
+while n>=10:                              # This is for checking whether the sum of digits is greater than 9 or not
+    sum=0
+    num=n
+    while(num> 0):                        #This is for adding digits of number
+            sum += int(num%10)                  
+            num = int(num/10) 
+    n=sum
+    k=k+1                                 # This is operation
+print(k)
+    
