@@ -3,10 +3,13 @@ m = int(input())
 arr = list(map(int, input().split()))
 arr.sort()
 d=m-n                         
-a = arr[d:]                    
-b= arr[:d]
-while len(b) > 0:
-    a[0] += max(b)                         
-    b.remove(max(b))
-    a.sort()
-print(min(a))
+if n==1:
+    print(arr.sum())
+else:
+    a = arr[d:]                    
+    b= arr[:d]
+    while len(b) > 0:
+        a[0] += max(b)                         
+        b.remove(max(b))
+        a.sort()
+        print(min(a))
