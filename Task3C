@@ -1,10 +1,16 @@
-n=int(input())
-k=1
-for i in range(3,n+1):              #In this we just have to find number of prime numbers in series because any other number would have a factor before it, so they will get same number
-    for j in range(2,i):
-        if i%j==0:
-            break
-    else:
-        k=k+1                       #To count operation
+n=int(input())                                  #To count operation
+prime_lis = [True for i in range(n+1)]        #We are making a list of 1's or True and thinking that every number is a prime number
+p = 2
+while (p*p<= n):                         # See every number before or equal to n will have a factor before or equal to n^0.5
+    if (prime_lis[p] == True): 
+        for i in range(p*2,n+1,p):          # Removing every multiple of that prime number
+            prime_lis[i] = False
+    p += 1
+prime_lis[0]= False
+prime_lis[1]= False 
+k=0
+for p in range(n+1):    
+    if prime_lis[p]:                # Counting prime numbers
+        k=k+1         
 print(k*(k+1)//2)                   # In this we are giving number to colour the first natural numbers because it's the way to find smallest sum
         
