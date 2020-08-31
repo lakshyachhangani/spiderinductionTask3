@@ -3,13 +3,14 @@ m = int(input())
 arr = list(map(int, input().split()))
 arr.sort()
 d=m-n                         
-if n==1:
+if n==1:                           # If n=1 then we have to add all bricks to find greatest strength
     print(arr.sum())
 else:
-    a = arr[d:]                    
+    a = arr[d:]                    #Slicing arr into two  lists a and b
     b= arr[:d]
     while len(b) > 0:
         a[0] += max(b)                         
         b.remove(max(b))
-        a.sort()
-        print(min(a))
+        if a[0]>a[1]:
+            a[0],a[1]=a[1],a[0]             #Swapping for minimum b/w a[0] and a[1] 
+    print(min(a))
